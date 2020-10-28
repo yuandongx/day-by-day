@@ -2,12 +2,18 @@ package main
 
 import (
 	"fmt"
-	"go-tour/spider/feet"
+	"go.tour/spider/boss"
 )
 
 //https://www.zhipin.com/wapi/zpCommon/data/position.json
 //https://www.zhipin.com/wapi/zpCommon/data/city.json
 func main() {
-	text := feet.Fecth("https://www.zhipin.com/wapi/zpCommon/data/city.json")
-	fmt.Println(text)
+
+	allC := boss.CityList("https://www.zhipin.com/wapi/zpCommon/data/city.json")
+	for _, v := range allC.ZpData.HotCityList {
+		fmt.Println(v.Name, v.SubLevelModelList)
+	}
+		for _, vv := range allC.ZpData.CityList {
+		fmt.Println(vv.Name, vv.SubLevelModelList)
+	}
 }
