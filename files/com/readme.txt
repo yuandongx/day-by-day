@@ -1,1 +1,0 @@
-libs for package
